@@ -121,7 +121,15 @@ const Footer = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" className="mt-0.5 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92V21a1 1 0 0 1-1.09 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3 3.09 1 1 0 0 1 4 2h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.27 1L8.91 8.91a16 16 0 0 0 6 6l2.16-1.91a1 1 0 0 1 1-.27l3 1a1 1 0 0 1 .75 1z" />
                 </svg>
-                <a href="tel:+51996231520" className="hover:opacity-90">+51 996231520</a>
+<a 
+  href="https://wa.me/51924786633?text=Hola,%20quiero%20más%20información" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="text-sm font-medium text-white hover:text-[#f00] transition-colors"
+>
+  +51 924786633
+</a>
+
               </li>
               <li className="flex items-start gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" className="mt-0.5 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
