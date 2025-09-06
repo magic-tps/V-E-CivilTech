@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-br from-[#460000] to-[#2a0000] scroll-mt-0"
+      className="relative overflow-hidden bg-gradient-to-br from-[#460000] to-[#2a0000]"
     >
       {/* Blobs suaves de fondo */}
       <div className="pointer-events-none absolute -top-24 -left-20 h-72 w-72 rounded-full bg-white/5 blur-3xl" />

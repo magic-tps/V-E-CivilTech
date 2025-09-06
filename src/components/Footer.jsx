@@ -93,7 +93,6 @@ const Footer = () => {
               <li><Link href="#nosotros">Nosotros</Link></li>
               <li><Link href="#servicios">Servicios</Link></li>
               <li><Link href="#proyectos">Proyectos</Link></li>
-              <li><Link href="#equipo">Equipo</Link></li>
               <li><Link href="#contacto">Contacto</Link></li>
             </ul>
           </div>
@@ -121,25 +120,30 @@ const Footer = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" className="mt-0.5 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92V21a1 1 0 0 1-1.09 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3 3.09 1 1 0 0 1 4 2h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.27 1L8.91 8.91a16 16 0 0 0 6 6l2.16-1.91a1 1 0 0 1 1-.27l3 1a1 1 0 0 1 .75 1z" />
                 </svg>
-<a 
-  href="https://wa.me/51924786633?text=Hola,%20quiero%20más%20información" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="text-sm font-medium text-white hover:text-[#f00] transition-colors"
->
-  +51 924786633
-</a>
-
+                <a 
+                  href="https://wa.me/51996231520?text=Hola,%20quiero%20más%20información" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-white hover:text-[#f00] transition-colors"
+                >
+                  +51 996231520
+                </a>
               </li>
+
+              {/* Correo con mailto corregido */}
               <li className="flex items-start gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" className="mt-0.5 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16v16H4z" />
                   <path d="m22 6-10 7L2 6" />
                 </svg>
-                <a href="mailto:contacto@vyeciviltech.com" className="hover:opacity-90">
-                  contacto@vyeciviltech.com
+                <a
+                  href="mailto:vyeciviltech@gmail.com?subject=Solicitud%20de%20información&body=Hola%20V%26E%20CIVILTECH%2C%20quisiera%20más%20información%20sobre%20sus%20servicios."
+                  className="hover:opacity-90"
+                >
+                  vyeciviltech@gmail.com
                 </a>
               </li>
+
               <li className="flex items-start gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" className="mt-0.5 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="9"></circle>

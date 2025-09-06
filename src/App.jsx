@@ -8,38 +8,44 @@ import Contactanos from "./components/Contactanos";
 import Footer from "./components/Footer";
 import Nosotros from "./components/Nosotros";
 import Proyectos from "./components/Proyectos";
-import Equipo from "./components/Equipo";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,          // animaciones más rápidas
+      duration: 800,
       easing: "ease-out-cubic",
-      once: true,             // se ejecutan una sola vez
-      offset: 80,             // dispara antes de entrar en viewport
+      once: true,
+      offset: 80,
     });
 
-    // refrescar AOS si cambia el hash (#servicios, #contacto, etc.)
-    const onHashChange = () => AOS.refreshHard?.();
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    // Compensación global por la altura REAL del header
+    const setScrollPadding = () => {
+      const h = document.getElementById("site-header")?.offsetHeight || 96;
+      document.documentElement.style.scrollPaddingTop = `${h + 8}px`; // colchón
+    };
+
+    setScrollPadding();
+    window.addEventListener("resize", setScrollPadding);
+    window.addEventListener("hashchange", setScrollPadding);
+    return () => {
+      window.removeEventListener("resize", setScrollPadding);
+      window.removeEventListener("hashchange", setScrollPadding);
+    };
   }, []);
 
   return (
-    // scroll-smooth para anclas, overflow-x-hidden para evitar scroll lateral por sombras/blobs
-    <div className="scroll-smooth overflow-x-hidden">
+    // ❌ sin "scroll-smooth" para eliminar el scroll animado
+    // ✅ overflow-x-hidden mantiene fuera el scroll lateral
+    <div className="overflow-x-hidden">
       <Header />
       <main className="overflow-x-clip">
         <Hero />
         <Nosotros />
         <Services />
-
         <Proyectos />
-        <Equipo />
         <Contactanos />
       </main>
-      {/* El footer también recorta decoraciones que sobresalgan */}
       <Footer />
       <WhatsAppButton />
     </div>

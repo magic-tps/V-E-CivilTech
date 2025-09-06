@@ -47,7 +47,6 @@ const Contacto = () => {
     }
     try {
       setSending(true);
-      // 👉 Aquí reemplaza por tu integración real (EmailJS, API propia, Formspree, etc.)
       await new Promise((r) => setTimeout(r, 900)); // simula envío
       setOk(true);
       setForm({
@@ -78,7 +77,7 @@ const Contacto = () => {
         {/* Encabezado */}
         <div className="max-w-3xl" data-aos="fade-right" data-aos-duration="800">
           <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
-            Contáctanos 
+            Contáctanos
           </h2>
           <p className="mt-4 text-gray-100/90">
             Cuéntanos tu proyecto y te asesoramos en diseño, construcción,
@@ -122,7 +121,7 @@ const Contacto = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="nombre" className="block text-sm mb-1">
-                    Nombre y apellidos 
+                    Nombre y apellidos
                   </label>
                   <input
                     id="nombre"
@@ -138,7 +137,7 @@ const Contacto = () => {
 
                 <div>
                   <label htmlFor="email" className="block text-sm mb-1">
-                    Correo electrónico 
+                    Correo electrónico
                   </label>
                   <input
                     id="email"
@@ -185,7 +184,7 @@ const Contacto = () => {
 
               <div className="mt-4">
                 <label htmlFor="mensaje" className="block text-sm mb-1">
-                  Mensaje 
+                  Mensaje
                 </label>
                 <textarea
                   id="mensaje"
@@ -234,19 +233,18 @@ const Contacto = () => {
                 </svg>
                 <div>
                   <div className="text-sm opacity-80">Central</div>
-             <a 
-  href="https://wa.me/51924786633?text=Hola,%20quiero%20más%20información" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="text-lg font-semibold text-white hover:opacity-90"
->
-  +51 924786633
-</a>
-
+                  <a
+                    href="https://wa.me/51996231520?text=Hola,%20quiero%20más%20información"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold text-white hover:opacity-90"
+                  >
+                    +51 996231520
+                  </a>
                 </div>
               </div>
 
-              {/* Correo */}
+              {/* Correo (mailto con asunto y cuerpo prellenados) */}
               <div className="flex items-start gap-3">
                 <svg width="22" height="22" viewBox="0 0 24 24" className="shrink-0 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16v16H4z" />
@@ -254,7 +252,18 @@ const Contacto = () => {
                 </svg>
                 <div>
                   <div className="text-sm opacity-80">Correo</div>
-                  <a href="mailto:vyeciviltech@gmail.com" className="text-lg font-semibold text-white hover:opacity-90">
+                  <a
+                    href={
+                      "mailto:vyeciviltech@gmail.com" +
+                      "?subject=" +
+                      encodeURIComponent("Solicitud de información") +
+                      "&body=" +
+                      encodeURIComponent(
+                        "Hola V&E CIVILTECH,\n\nQuisiera más información sobre sus servicios. Mi nombre es ______ y mi teléfono es ______.\n\nGracias."
+                      )
+                    }
+                    className="text-lg font-semibold text-white hover:opacity-90"
+                  >
                     vyeciviltech@gmail.com
                   </a>
                 </div>
@@ -272,22 +281,37 @@ const Contacto = () => {
                 </div>
               </div>
 
-              {/* Dirección (Ica) */}
+              {/* Dirección (Ica) + MAPA EMBEBIDO */}
               <div className="flex items-start gap-3">
                 <svg width="22" height="22" viewBox="0 0 24 24" className="shrink-0 text-[#f00]" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 21s-8-7.58-8-12a8 8 0 0 1 16 0c0 4.42-8 12-8 12z" />
                   <circle cx="12" cy="9" r="2.5" />
                 </svg>
-                <div>
+                <div className="w-full">
                   <div className="text-sm opacity-80">Ubicación</div>
                   <div className="text-lg font-semibold text-white">
                     Ica, Perú
                   </div>
+
+                  {/* Mapa: 16/9 responsivo, esquinas redondeadas */}
+                  <div className="mt-3 relative w-full overflow-hidden rounded-2xl border border-white/15 shadow-md">
+                    <div className="pt-[56.25%]" /> {/* aspect ratio 16:9 */}
+                    <iframe
+                      title="Mapa V&E CIVILTECH - Ica, Perú"
+                      aria-label="Google Maps de la ubicación en Ica, Perú"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="absolute inset-0 h-full w-full"
+                      src={`https://www.google.com/maps?q=-14.0741101,-75.734869&hl=es&z=15&output=embed`}
+                      allowFullScreen
+                    />
+                  </div>
+
                   <a
                     href="https://www.google.com/maps/@-14.0741101,-75.734869,3a,75y,87.41h,82.75t/data=!3m7!1e1!3m5!1sGbYJFv9FYrfTeDrf4AUn_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.25023796764647%26panoid%3DGbYJFv9FYrfTeDrf4AUn_Q%26yaw%3D87.41439109626957!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm underline decoration-white/40 hover:decoration-white"
+                    className="mt-2 inline-block text-sm underline decoration-white/40 hover:decoration-white"
                   >
                     Ver en Google Maps
                   </a>
